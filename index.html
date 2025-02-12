@@ -81,16 +81,50 @@
                 transform: scale(1.2);
             }
         }
+        /* Notification Styles */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #fffa65;
+            color: #333;
+            padding: 15px 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            display: none;
+            animation: slideIn 0.5s ease forwards;
+            z-index: 999;
+        }
+        .notification p {
+            margin: 0;
+            font-weight: bold;
+        }
+        .notification button {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>ZeroTheBhadman,</h1>
         <p>As e dey hot! Keep pushing, no stopping! 🔥</p>
-        <p>Backend wahala na your playground. 👑</p>
-        <p>Keep coding like say na oha you dey chop. 🔥</p>
+        <p>Backend wahala na your playground. 💻👑</p>
+        <p>Keep coding like say dem go pay you in Bitcoin. 😎🚀</p>
         <div class="code-banter">
-            <p>// Naija Bhadest:</p>
+            <p>// Naija Banter Mode:</p>
             <p><span>if</span> (grind && talent) {</p>
             <p style="padding-left: 20px;">console.log("Unstoppable Backend Engineer 😎");</p>
             <p>}</p>
@@ -98,5 +132,48 @@
         <p class="naija-banter">ZeroTheBhadman... Na you sure pass! 😂💪</p>
         <p class="heart">❤️</p>
     </div>
+
+    <!-- Notification for Alarm -->
+    <div class="notification" id="breakfast-notification">
+        <p>Oya, ZeroTheBhadman! Time for Breakfast! 🍞☕</p>
+        <p>Make hunger no spoil your coding vibes! 😂</p>
+        <button onclick="closeNotification('breakfast-notification')">Oya, I Don Hear!</button>
+    </div>
+
+    <div class="notification" id="lunch-notification">
+        <p>Abeg no code pass yourself! Time for Lunch! 🍛</p>
+        <p>Energy dey important, no fall my hand! 😂</p>
+        <button onclick="closeNotification('lunch-notification')">Oya, I Don Hear!</button>
+    </div>
+
+    <script>
+        // Function to show notifications
+        function showNotification(id) {
+            document.getElementById(id).style.display = 'block';
+        }
+
+        // Function to close notifications
+        function closeNotification(id) {
+            document.getElementById(id).style.display = 'none';
+        }
+
+        // Alarm timings
+        const breakfastTime = new Date();
+        breakfastTime.setHours(9, 0, 0); // 9:00 AM
+
+        const lunchTime = new Date();
+        lunchTime.setHours(13, 0, 0); // 1:00 PM
+
+        // Check time every minute
+        setInterval(() => {
+            const now = new Date();
+            if (now.getHours() === breakfastTime.getHours() && now.getMinutes() === breakfastTime.getMinutes()) {
+                showNotification('breakfast-notification');
+            }
+            if (now.getHours() === lunchTime.getHours() && now.getMinutes() === lunchTime.getMinutes()) {
+                showNotification('lunch-notification');
+            }
+        }, 60000); // Check every 60 seconds
+    </script>
 </body>
 </html>
