@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Just Because - ZeroTheBhadman</title>
+    <title>ZeroTheBhadman - Just Because</title>
     <style>
         body {
             display: flex;
@@ -11,40 +11,54 @@
             align-items: center;
             min-height: 100vh;
             margin: 0;
-            background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
             font-family: 'Arial', sans-serif;
             text-align: center;
             color: #333;
+            overflow: hidden;
         }
         .container {
             background: white;
-            padding: 20px 30px;
-            border-radius: 10px;
-            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
-            max-width: 500px;
+            padding: 30px 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            transition: transform 0.3s ease;
+        }
+        .container:hover {
+            transform: translateY(-10px);
         }
         h1 {
-            font-size: 2em;
+            font-size: 2.5em;
             margin: 0;
             color: #333;
+            transition: color 0.3s;
+        }
+        h1:hover {
+            color: #3498db;
         }
         p {
             font-size: 1.2em;
             margin: 15px 0;
+            color: #555;
+            transition: color 0.3s;
+        }
+        p:hover {
             color: #666;
         }
         .heart {
             color: #e74c3c;
             animation: pulse 1.5s infinite;
-            font-size: 2em;
+            font-size: 2.5em;
         }
         .code-banter {
             background: #f4f4f9;
-            padding: 10px;
-            border-radius: 5px;
+            padding: 15px;
+            border-radius: 10px;
             font-family: 'Courier New', monospace;
             color: #555;
             text-align: left;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
         }
         .code-banter span {
             color: #3498db;
@@ -52,7 +66,12 @@
         .naija-banter {
             font-style: italic;
             color: #2c3e50;
-            margin-top: 10px;
+            margin-top: 15px;
+            font-size: 1.1em;
+            transition: transform 0.3s;
+        }
+        .naija-banter:hover {
+            transform: scale(1.1);
         }
         @keyframes pulse {
             0%, 100% {
@@ -66,17 +85,17 @@
 </head>
 <body>
     <div class="container">
-        <h1>Hey ZeroTheBhadman,</h1>
-        <p>Wahala no dey finish, but you sef no dey tire! 😎</p>
+        <h1>ZeroTheBhadman,</h1>
+        <p>As e dey hot! Keep pushing, no stopping! 🔥</p>
+        <p>Backend wahala na your playground. 👑</p>
         <p>Keep coding like say na oha you dey chop. 🔥</p>
-        <p>Backend no fit stress you... You be senior man! 💻</p>
         <div class="code-banter">
-            <p>// Naija Baddest:</p>
+            <p>// Naija Bhadest:</p>
             <p><span>if</span> (grind && talent) {</p>
             <p style="padding-left: 20px;">console.log("Unstoppable Backend Engineer 😎");</p>
             <p>}</p>
         </div>
-        <p class="naija-banter">ZeroTheBhadman... No dull moment! 😂💪</p>
+        <p class="naija-banter">ZeroTheBhadman... Na you sure pass! 😂💪</p>
         <p class="heart">❤️</p>
     </div>
 </body>
