@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZeroTheBhadman - Just Because</title>
+    <title>ZeroTheBhadman Reminder</title>
     <style>
         body {
             display: flex;
@@ -11,67 +11,41 @@
             align-items: center;
             min-height: 100vh;
             margin: 0;
-            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            background: linear-gradient(135deg, #8EC5FC, #E0C3FC);
             font-family: 'Arial', sans-serif;
             text-align: center;
             color: #333;
-            overflow: hidden;
         }
         .container {
             background: white;
-            padding: 30px 40px;
-            border-radius: 20px;
-            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
-            max-width: 600px;
-            transition: transform 0.3s ease;
-        }
-        .container:hover {
-            transform: translateY(-10px);
+            padding: 20px 30px;
+            border-radius: 10px;
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
         }
         h1 {
-            font-size: 2.5em;
+            font-size: 2em;
             margin: 0;
             color: #333;
-            transition: color 0.3s;
-        }
-        h1:hover {
-            color: #3498db;
         }
         p {
             font-size: 1.2em;
             margin: 15px 0;
-            color: #555;
-            transition: color 0.3s;
-        }
-        p:hover {
             color: #666;
         }
         .heart {
             color: #e74c3c;
             animation: pulse 1.5s infinite;
-            font-size: 2.5em;
         }
         .code-banter {
             background: #f4f4f9;
-            padding: 15px;
-            border-radius: 10px;
+            padding: 10px;
+            border-radius: 5px;
             font-family: 'Courier New', monospace;
             color: #555;
-            text-align: left;
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
         }
         .code-banter span {
             color: #3498db;
-        }
-        .naija-banter {
-            font-style: italic;
-            color: #2c3e50;
-            margin-top: 15px;
-            font-size: 1.1em;
-            transition: transform 0.3s;
-        }
-        .naija-banter:hover {
-            transform: scale(1.1);
         }
         @keyframes pulse {
             0%, 100% {
@@ -81,99 +55,90 @@
                 transform: scale(1.2);
             }
         }
-        /* Notification Styles */
-        .notification {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: #fffa65;
-            color: #333;
-            padding: 15px 20px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        .reminder {
             display: none;
-            animation: slideIn 0.5s ease forwards;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #fff;
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            border-radius: 8px;
+            padding: 15px;
+            max-width: 300px;
             z-index: 999;
         }
-        .notification p {
-            margin: 0;
-            font-weight: bold;
+        .reminder h3 {
+            margin: 0 0 10px;
+            color: #333;
         }
-        .notification button {
-            background: #e74c3c;
+        .reminder button {
+            background: #3498db;
             color: white;
             border: none;
             padding: 5px 10px;
             border-radius: 5px;
             cursor: pointer;
         }
-        @keyframes slideIn {
-            from {
-                transform: translateX(100%);
-            }
-            to {
-                transform: translateX(0);
-            }
-        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>ZeroTheBhadman,</h1>
-        <p>As e dey hot! Keep pushing, no stopping! 🔥</p>
-        <p>Backend wahala na your playground. 💻👑</p>
-        <p>Keep coding like say dem go pay you in Bitcoin. 😎🚀</p>
+        <h1>Hey ZeroTheBhadman,</h1>
+        <p>I see how hard you're coding, and I just wanted to remind you...</p>
+        <p>You are amazing, and I'm so proud of you. ❤️</p>
+        <p>Even from afar, I hope you feel my support. Keep shining!</p>
         <div class="code-banter">
-            <p>// Naija Banter Mode:</p>
-            <p><span>if</span> (grind && talent) {</p>
-            <p style="padding-left: 20px;">console.log("Unstoppable Backend Engineer 😎");</p>
+            <p>// Fun fact:</p>
+            <p><span>if</span> (hardWork && talent) {</p>
+            <p style="padding-left: 20px;">console.log("Unstoppable Backend Engineer ❤️");</p>
             <p>}</p>
         </div>
-        <p class="naija-banter">ZeroTheBhadman... Na you sure pass! 😂💪</p>
         <p class="heart">❤️</p>
     </div>
 
-    <!-- Notification for Alarm -->
-    <div class="notification" id="breakfast-notification">
-        <p>Oya, ZeroTheBhadman! Time for Breakfast! 🍞☕</p>
-        <p>Make hunger no spoil your coding vibes! 😂</p>
-        <button onclick="closeNotification('breakfast-notification')">Oya, I Don Hear!</button>
-    </div>
-
-    <div class="notification" id="lunch-notification">
-        <p>Abeg no code pass yourself! Time for Lunch! 🍛</p>
-        <p>Energy dey important, no fall my hand! 😂</p>
-        <button onclick="closeNotification('lunch-notification')">Oya, I Don Hear!</button>
+    <!-- Reminder Pop-Up -->
+    <div class="reminder" id="reminder">
+        <h3>Hey ZeroTheBhadman! 😂</h3>
+        <p id="reminderMessage"></p>
+        <button onclick="closeReminder()">Oya, I Don Hear!</button>
     </div>
 
     <script>
-        // Function to show notifications
-        function showNotification(id) {
-            document.getElementById(id).style.display = 'block';
-        }
-
-        // Function to close notifications
-        function closeNotification(id) {
-            document.getElementById(id).style.display = 'none';
-        }
-
-        // Alarm timings
-        const breakfastTime = new Date();
-        breakfastTime.setHours(9, 0, 0); // 9:00 AM
-
-        const lunchTime = new Date();
-        lunchTime.setHours(13, 0, 0); // 1:00 PM
-
-        // Check time every minute
-        setInterval(() => {
+        function checkTime() {
             const now = new Date();
-            if (now.getHours() === breakfastTime.getHours() && now.getMinutes() === breakfastTime.getMinutes()) {
-                showNotification('breakfast-notification');
+            const hours = now.getHours();
+            const minutes = now.getMinutes();
+
+            // Breakfast Reminder - 9:00 AM
+            if (hours === 9 && minutes === 0) {
+                showReminder("No go code forget breakfast! 🍞😂");
             }
-            if (now.getHours() === lunchTime.getHours() && now.getMinutes() === lunchTime.getMinutes()) {
-                showNotification('lunch-notification');
+
+            // Lunch Reminder - 1:00 PM
+            if (hours === 13 && minutes === 0) {
+                showReminder("Guy, chop lunch o! 🍛😂 Make brain no pause!");
             }
-        }, 60000); // Check every 60 seconds
+
+            // Dinner Reminder - 7:00 PM
+            if (hours === 19 && minutes === 0) {
+                showReminder("ZeroTheBhadman, no go code forget dinner! 🍲💪 Fuel up, make energy no loss! 😂");
+            }
+        }
+
+        function showReminder(message) {
+            const reminderBox = document.getElementById("reminder");
+            const reminderMessage = document.getElementById("reminderMessage");
+            reminderMessage.innerText = message;
+            reminderBox.style.display = "block";
+        }
+
+        function closeReminder() {
+            document.getElementById("reminder").style.display = "none";
+        }
+
+        // Check every minute
+        setInterval(checkTime, 60000);
     </script>
 </body>
 </html>
